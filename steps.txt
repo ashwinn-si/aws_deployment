@@ -1,0 +1,54 @@
+1. Create a VPC
+  - Go to VPC → Your VPCs → Create VPC.
+  - Name: MyVPC
+  - IPv4 CIDR block: 10.0.0.0/16 -> 10.0.0.0/24
+  - Tenancy: Default
+  - VPC created.
+
+2. Create Subnet
+  - Go to Subnets → Create subnet.
+  - VPC: MyVPC
+  - Availability Zone: e.g., ap-south-1a
+  - IPv4 CIDR block: 10.0.1.0/24 -> main is 10.0.<>
+  - Subnet created (public subnet).
+
+3. Go to Route Tables → Create route table.
+  - VPC: MyVPC
+  - Name: PublicRouteTable
+  - Add routes:
+    • 10.0.0.0/16 → local (default)
+    • 0.0.0.0/0 → MyIGW
+  - Associate 10.0.1.0/24 subnet with this route table.
+  - Set it as the main routing table from the edit options
+
+4. Create Internet Gateway (IGW)
+  - Go to Internet Gateways → Create internet gateway.
+  - Name: MyIGW
+  - Attach it to MyVPC -> from the edit option in the igw
+  - IGW created and attached.
+
+5. Create Security Group
+  - Go to Security Groups → Create security group.
+  - VPC: MyVPC
+  - Name: MySG
+  - Inbound rules:
+    • SSH (22) → My IP
+    • HTTP (80) → 0.0.0.0/0
+    • HTTPS (443) → 0.0.0.0/0
+  - Outbound rules: Allow all (default).
+
+6. Launch EC2 Instance
+  - Go to EC2 → Launch instance.
+  - AMI: Amazon Linux 2 / Ubuntu
+  - Instance type: t2.micro
+  - Network: MyVPC
+  - Subnet: 10.0.1.0/24
+  - Auto-assign Public IP: Enable
+  - Security Group: MySG
+  - Launch with key pair.
+
+7. Attach a Elastic IP to the instance
+
+8. Attach the Elastic IP to the EC2 [from Elastic IP]
+
+9.

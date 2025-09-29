@@ -1,0 +1,13 @@
+1. What is a Server ?
+2. What is Node.js ?
+3. What is Express.js ?
+4. What is MERN STACK | Spring | Springboot | Django ?
+5. Github repo and setup process, explaining the structure of the setup !
+
+AWS TOPICS
+1. What AWS ?
+2. What is EC2 ?
+3. What is VPC ?
+4. What is subnetting ?
+5. What is VPC gateways [IGW] ?
+6. What is routing table

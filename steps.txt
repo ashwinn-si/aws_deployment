@@ -133,7 +133,7 @@ location /api {
 restart the nginx
 sudo nginx -t
 sudo systemctl reload nginx
-sudo systemctl restart ngnix
+sudo systemctl restart nginx
 
 #go the folder of the github
 
@@ -143,3 +143,9 @@ sudo systemctl restart ngnix
 15. Update the ci/cd
 - name: pm2 restart
     run: pm2 restart SolveStackBackend
+
+
+16. SSL Certificate
+sudo apt update
+sudo apt install -y certbot python3-certbot-nginx
+sudo certbot --nginx -d api.ashwinsi.in
